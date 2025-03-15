@@ -24,7 +24,7 @@ export const EXPERIENCES = [
     id: 3,
     company: "QHRM",
     logo: "/company/qhrm.jpeg",
-    timeline: "Jul 2023 - Nov 2023",
+    timeline: "Jul 2022 - Nov 2023",
     position: "MERN Developer",
     responsibilities: `- Contributed to an existing React Native production app, troubleshooting and resolving issues to ensure stability and optimal user experience. -Collaborated with the development team to understand the app's architecture and codebase. -Demonstrated strong problem-solving skills to identify and address bugs and performance bottlenecks.-Developed a web application from the ground up using Next.js, showcasing proficiency in frontend development and framework utilization. -Integrated with backend APIs and services to enable seamless data exchange and user interactions.
 `,

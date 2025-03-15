@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
-    transpilePackages: ['@repo/ui', "@turbo-with-tailwind/design-system",
+    transpilePackages: ['@repo/ui', "@repo/hooks","@turbo-with-tailwind/design-system",
         "@turbo-with-tailwind/ui",]
 };
 

@@ -3,7 +3,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "install:portfolio":"yarn --cwd apps/portfolio",
+    "install:portfolio": "yarn --cwd apps/portfolio",
     "build:portfolio": "yarn dev --filter=portfolio",
     "dev:web": "yarn dev --filter=web",
     "build:web": "yarn build --filter=web",
@@ -40,5 +40,13 @@
     "*.json": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "@carefully-coded/react-text-gradient": "^1.0.6",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.5.0",
+    "lenis": "^1.2.3",
+    "react-icons": "^5.5.0",
+    "tailwind-merge": "^3.0.2"
   }
 }
