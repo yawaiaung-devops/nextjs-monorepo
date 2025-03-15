@@ -27,7 +27,7 @@ export const LogoOrigami = ({logos}: {logos:typeof LOGOS[0][]}) => {
         return com;
     }, [])
     return (
-        <section className="flex h-72 flex-col items-center justify-center gap-12 px-4 py-24 md:flex-row">
+        <section className="flex flex-col items-center justify-center gap-12 px-4 md:flex-row">
             <LogoRolodex
                 items={LogoCom}
             />

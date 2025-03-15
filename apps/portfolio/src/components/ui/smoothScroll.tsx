@@ -18,7 +18,7 @@ import { LogoOrigami, LOGOS } from './logoOrigami';
 export const SmoothScrollHero = () => {
 
     return (
-        <div className='w-full bg-zinc-800'>
+        <div className='w-full px-2 md:px-0 bg-zinc-800'>
             <ReactLenis
                 root
                 options={{
@@ -31,11 +31,13 @@ export const SmoothScrollHero = () => {
                 {/* <Nav />  */}
                 {/* <Hero /> */}
                 <Home />
-                <div className='grid grid-cols-4 gap-3 max-w-5xl mx-auto'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-5xl mx-auto'>
                     <LogoOrigami logos={LOGOS} />
                     <LogoOrigami logos={LOGOS} />
                     <LogoOrigami logos={LOGOS} />
+                    <div className='md:hidden lg:block'>
                     <LogoOrigami logos={LOGOS} />
+                    </div>
                 </div>
                 <Schedule />
                 <VerticalAccordion />
@@ -198,7 +200,7 @@ const Schedule = () => {
                     initial={{ y: 48, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{ ease: "easeInOut", duration: 0.75 }}
-                    className="text-4xl font-black uppercase text-zinc-50"
+                    className="text-lg md:text-4xl font-black uppercase text-zinc-50"
                 >
                     Experience
                 </motion.h1>
@@ -234,10 +236,10 @@ const ScheduleItem = ({
                 <Text weight="bold" size="xl" color="orange">
                     {company}
                 </Text>
-                <Text size="md" weight="semibold" className='!text-gray-300'>
+                <Text size="md" weight="semibold" className='!text-gray-300 !mt-1'>
                     {position}
                 </Text>
-                <Text size="md" className="my-2 !text-gray-300">
+                <Text size="md" className="my-2 !text-gray-300 !mt-0.5">
                     {timeline}
                 </Text>
                 <div className="mt-2">

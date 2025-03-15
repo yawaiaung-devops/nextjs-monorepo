@@ -63,14 +63,14 @@ const Home = () => {
       <h5 className="font-bold font-header text-white text-4xl">YA WAI AUNG</h5>
 
       <div className="grid place-content-center p-4">
-        <h1 className="max-w-4xl text-center text-2xl text-gray-400 leading-snug">
+        <h1 className="max-w-4xl text-center text-base lg:text-xl text-gray-400 leading-snug tracking-wider">
           Crafting Seamless Experiences, {' '}
           <span className="relative">
             One Pixel
             <svg
               viewBox="0 0 286 73"
               fill="none"
-              className="absolute -left-2 size-44 -right-2 -top-20 bottom-0 translate-y-1"
+              className="absolute -left-2 size-32 -right-2 -top-14 bottom-0 translate-y-1 hidden md:inline-block"
             >
               <motion.path
                 initial={{ pathLength: 0 }}

@@ -15,7 +15,7 @@ const VerticalAccordion = () => {
                     initial={{ y: 48, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{ ease: "easeInOut", duration: 0.75 }}
-                    className="text-4xl font-black uppercase text-zinc-50"
+                    className="text-lg md:text-4xl font-black uppercase text-zinc-50"
                 >
                     WORK
                 </motion.h1>
@@ -87,7 +87,7 @@ const Panel = ({
                 >
                     {title}
                 </span>
-                <span className="block lg:hidden text-xl font-light">{title}</span>
+                <span className="block lg:hidden text-base md:text-xl font-light text-gray-400">{title}</span>
                 <div className="w-6 lg:w-full aspect-square bg-indigo-600 text-white grid place-items-center">
                     <Icon />
                 </div>
@@ -163,15 +163,15 @@ const descriptionVariants = {
 };
 
 const items = [
-    {
-        id: 0,
-        title: "One Site Graphic Design",
-        Icon: FaBuilding,
-        imgSrc:
-            "/onesite.png",
-        description: "",
-        size: "contain"
-    },
+    // {
+    //     id: 0,
+    //     title: "One Site Graphic Design",
+    //     Icon: FaBuilding,
+    //     imgSrc:
+    //         "/onesite.png",
+    //     description: "",
+    //     size: "contain"
+    // },
     {
         id: 1,
         title: "Mex HR",
