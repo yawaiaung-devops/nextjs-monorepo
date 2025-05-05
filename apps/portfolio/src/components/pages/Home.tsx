@@ -64,7 +64,7 @@ const Home = () => {
 
       <div className="grid place-content-center p-4">
         <h1 className="max-w-4xl text-center text-base lg:text-xl text-gray-400 leading-snug tracking-wider">
-          Crafting Seamless Experiences, {' '}
+          Crafting Seamless Experiences,{" "}
           <span className="relative">
             One Pixel
             <svg
@@ -89,7 +89,6 @@ const Home = () => {
         </h1>
       </div>
 
-
       <div className="flex gap-4 py-3">
         <a
           href="https://www.linkedin.com/in/yawai-aung-2a455b255/"
@@ -105,19 +104,26 @@ const Home = () => {
         >
           <Mail />
         </a>
-        <a  href="tel:+66661294593" target="_blank" className="cursor-pointer border-2 p-2 border-orange-400 text-gray-400 rounded-full">
+        <a
+          href="tel:+66661294593"
+          target="_blank"
+          className="cursor-pointer border-2 p-2 border-orange-400 text-gray-400 rounded-full"
+        >
           <Phone />
         </a>
       </div>
-      
-      
+
       <div className="flex h-fit items-center absolute bottom-10 justify-center">
-        <div className={cn("bg-zinc-800 absolute left-0 top-0 h-full w-0 duration-300 ease-in-out", {"w-full": top > 500})} />
+        <div
+          className={cn(
+            "bg-zinc-800 absolute left-0 top-0 h-full w-0 duration-300 ease-in-out",
+            { "w-full": top > 20 }
+          )}
+        />
         <span className="font-semibold uppercase text-neutral-500">
           Scroll down
         </span>
       </div>
-      
     </div>
   );
 };
