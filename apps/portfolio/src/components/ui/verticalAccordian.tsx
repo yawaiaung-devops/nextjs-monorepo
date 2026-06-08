@@ -166,75 +166,35 @@ const descriptionVariants = {
   closed: { opacity: 0, y: "100%" },
 };
 
-const items = [
+export const items = [
+  {
+    id: 9,
+    title: "One Site Menu",
+    Icon: FaBuilding,
+    imgSrc: "/menu.png",
+    description:
+      "Developed a restaurant e-commerce platform with customizable storefronts, PWA support, online ordering, payment integrations, and a comprehensive merchant management dashboard.",
+    size: "cover",
+    href: "https://www.onesitemenu.com"
+  },
   {
     id: 8,
     title: "One Site Graphic Design",
     Icon: FaBuilding,
     imgSrc: "/onesite.png",
     description:
-      "One Site Graphic Design is a website that provides graphic design services to clients. We offer a wide range of services including logo design, branding, and etc.",
+      "Developed a graphic design service platform providing branding, logo design, and creative solutions for businesses and individuals.",
     size: "contain",
+    href: "https://onesitedesign.org"
   },
   {
     id: 7,
-    title: "My Comm Land",
+    title: "Alpha E-commerce",
     Icon: FaNewspaper,
-    imgSrc: "mycomm.png",
+    imgSrc: "/alpha.png",
     description:
-      "My Comm Land is a website that provides information sharing services to the people. We aim to connect the people with the information they need when they need the help for their daily life while they are facing the disaster.",
+      "Developed a comprehensive e-commerce administration platform for managing products, inventory, promotions, and marketing operations through a centralized dashboard.",
     size: "contain",
-  },
-  {
-    id: 6,
-    title: "Mex HR",
-    Icon: FaBuilding,
-    imgSrc: "/mex.webp",
-    description:
-      "Mex HR is a website that provides HR services to clients. We offers the payroll calculation, employee management, and etc.",
-    size: "cover",
-  },
-  {
-    id: 5,
-    title: "Kalasa Art Gallery",
-    Icon: FaPalette,
-    imgSrc: "/kalasa.png",
-    size: "cover",
-    description:
-      "Kalasa Art Gallery is a website that provides art gallery services to clients. We offer a wide range of services including art exhibitions, art sales, and etc.",
-  },
-  {
-    id: 4,
-    title: "World2MM",
-    Icon: FaNewspaper,
-    imgSrc: "world2.png",
-    description: "Talking to the world from Myanmar",
-    size: "contain",
-  },
-  {
-    id: 3,
-    title: "Central World",
-    Icon: FaNewspaper,
-    imgSrc: "cw.png",
-    description: "",
-    size: "cover",
-  },
-  {
-    id: 2,
-    title: "Ohio Myanmar",
-    Icon: FaBuilding,
-    imgSrc: "ohio.png",
-    size: "cover",
-    description:
-      "Ohio Myanmar International's global perspective drives its dedication to fostering international communication and fostering global business collaborations. It embraces a non-local approach, emphasizing the importance of transcending geographical boundaries to create a meaningful impact on a global scale.",
-  },
-  {
-    id: 1,
-    title: "M Group",
-    Icon: MdOutlineSportsSoccer,
-    imgSrc: "mgp.png",
-    size: "cover",
-    description:
-      "M Group is a groups of company for presenting news about the sports and esports.",
+    href: "#"
   },
 ];

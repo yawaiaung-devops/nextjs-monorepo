@@ -25,6 +25,7 @@ const MYSKILLS = [
   "Ant Design",
   "Git",
   "NestJS",
+  "GraphQL"
 ];
 const Languages = () => (
   <div className="flex flex-col justify-center items-center p-0 lg:px-4 py-12">

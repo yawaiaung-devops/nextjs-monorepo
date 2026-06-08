@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-       <head>
+      <head>
         <link
           rel="icon"
           type="image/x-icon"
@@ -37,7 +37,7 @@ export default function RootLayout({
           sizes="<generated>"
         />
       </head>
-      <body className={`${roboto.variable} ${oswald.variable}`}>
+      <body className={`${roboto.variable} ${oswald.variable} bg-zinc-800`}>
         <main>{children}</main>
       </body>
     </html>

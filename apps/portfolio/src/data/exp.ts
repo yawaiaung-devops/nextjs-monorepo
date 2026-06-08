@@ -6,17 +6,20 @@ export const EXPERIENCES = [
     timeline: "Nov 2023 - Present",
     position: "FrontEnd Developer",
     responsibilities: `- Crafted responsive web designs that boosted user engagement.
-- Solved dynamic localization to utilize for all web applications, react native, etc..
-- Optimized site performance, reducing load times by 50% for better UX.
+Built a multi-template content management system using Next.js in a mono-repo setup (Turborepo or
+Nx), leveraging shared UI components, API utilities, and centralized configuration to improve
+scalability and maintainability.
+- Implemented a dynamic localization system used across web and mobile applications, allowing
+administrators to add new languages without code changes..
+Integrated payment in various web application like e-commerce, designing with KBZ Pay, AYA Pay,
+Wave Pay.
+- Improved page load performance by 40% through code splitting, lazy loading, and asset
+optimization.
 - Collaborated with UX/UI teams to elevate design quality and consistency.
 - Integrated APIs seamlessly, enriching user experience with dynamic content.
-- Mentored junior developers, fostering a culture of continuous learning.
+- improving onboarding efficiency and code quality.
 - Achieved high customer satisfaction scores through intuitive interfaces.
-- Project Planning: Collaborate with stakeholders to understand project requirements and define clear objectives.
-- Development: Write clean, maintainable, and efficient code for frontend .
-- Version Control: Manage code repositories, perform code reviews, and ensure best practices in version control. -Utilized performance optimization techniques to improve page load times and overall application responsiveness.
-- Proficient in debugging and troubleshooting issues within React and Next.js applications 
-`,
+Developed live chat system to use various platform.`,
   },
   {
     id: 2,
@@ -35,14 +38,16 @@ export const EXPERIENCES = [
     logo: "/company/qhrm.jpeg",
     timeline: "2021 - 2022",
     position: "MERN Developer",
-    responsibilities: ` - Contributed to an existing React Native production app, troubleshooting and resolving issues to ensure stability and optimal user experience. -Collaborated with the development team to understand the app's architecture and codebase. 
-    - Demonstrated strong problem-solving skills to identify and address bugs and performance bottlenecks.
-    - Developed a web application from the ground up using Next.js, showcasing proficiency in frontend development and framework utilization. 
-    - Integrated with backend APIs and services to enable seamless data exchange and user interactions.
-    - Maintained system uptime and resolved user-reported issues promptly
-    - Automated repetitive tasks, reducing manual data entry errors
-    - Ensured data privacy and compliance with HR policies and standards
-    - Supported integration with third-party payroll and recruitment tools
+    responsibilities: `- Contributed to an existing React Native production app, troubleshooting and resolving issues to
+ensure stability and optimal user experience.
+- Collaborated with the development team to understand the app's architecture and codebase.
+- Solving skills to identify and address bugs and performance bottlenecks.
+- Developed a web application from the ground up using Next.js, showcasing proficiency in frontend
+development and framework utilization.
+- Integrated with backend APIs and services to enable seamless data exchange and user interactions.
+- Maintained system uptime and resolved user 
+- Automated repetitive tasks, reducing manual data entry errors
+- Ensured data privacy and compliance with HR policies and standards
 `,
   },
   {

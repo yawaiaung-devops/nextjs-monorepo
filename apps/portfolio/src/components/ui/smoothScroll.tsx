@@ -1,261 +1,268 @@
-"use client"
-import { ReactLenis } from 'lenis/react'
+"use client";
+import { ReactLenis } from "lenis/react";
 import {
-    motion,
-    useMotionTemplate,
-    useScroll,
-    useTransform,
+  motion,
+  useMotionTemplate,
+  useScroll,
+  useTransform,
 } from "framer-motion";
 import { SiSpacex } from "react-icons/si";
 import { FiArrowRight } from "react-icons/fi";
 import { useRef } from "react";
-import VerticalAccordion from './verticalAccordian';
-import { EXPERIENCES } from '@/data/exp';
+import VerticalAccordion from "./verticalAccordian";
+import { EXPERIENCES } from "@/data/exp";
 import { Text } from "rsuite";
-import Home from '../pages/Home';
-import { LogoOrigami, LOGOS } from './logoOrigami';
+import Home from "../pages/Home";
+import { LogoOrigami, LOGOS } from "./logoOrigami";
+import LogoRibbon from "./LogoRibbon";
+import Project from "../pages/Project";
 
 export const SmoothScrollHero = () => {
+  return (
+    <div className="w-full px-2 md:px-0 bg-zinc-800">
+      <ReactLenis
+        root
+        options={{
+          lerp: 0.05,
+          //   infinite: true,
+          //   syncTouch: true,
+        }}
+      >
+        {/* <Hero /> */}
+        {/* <Nav />
+        <Hero /> */}
+        <Home />
 
-    return (
-        <div className='w-full px-2 md:px-0 bg-zinc-800'>
-            <ReactLenis
-                root
-                options={{
-                    lerp: 0.05,
-                    //   infinite: true,
-                    //   syncTouch: true,
-                }}
-            >
-                {/* <Hero /> */}
-                {/* <Nav />  */}
-                {/* <Hero /> */}
-                <Home />
-                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-5xl mx-auto'>
-                    <LogoOrigami logos={LOGOS} />
-                    <LogoOrigami logos={LOGOS} />
-                    <LogoOrigami logos={LOGOS} />
-                    <div className='md:hidden lg:block'>
-                    <LogoOrigami logos={LOGOS} />
-                    </div>
-                </div>
-                <Schedule />
-                <VerticalAccordion />
-            </ReactLenis>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-5xl mx-auto">
+          <LogoOrigami logos={LOGOS} />
+          <LogoOrigami logos={LOGOS} />
+          <LogoOrigami logos={LOGOS} />
+          <div className="md:hidden lg:block">
+            <LogoOrigami logos={LOGOS} />
+          </div>
         </div>
-    );
+        <Schedule />
+
+        {/* <VerticalAccordion /> */}
+      </ReactLenis>
+      <Project />
+    </div>
+  );
 };
 
 const Nav = () => {
-    return (
-        <nav className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-6 py-3 text-white">
-            <SiSpacex className="text-3xl mix-blend-difference" />
-            <button
-                onClick={() => {
-                    document.getElementById("launch-schedule")?.scrollIntoView({
-                        behavior: "smooth",
-                    });
-                }}
-                className="flex items-center gap-1 text-xs text-zinc-400"
-            >
-                LAUNCH SCHEDULE <FiArrowRight />
-            </button>
-        </nav>
-    );
+  return (
+    <nav className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-6 py-3 text-white">
+      <SiSpacex className="text-3xl mix-blend-difference" />
+      <button
+        onClick={() => {
+          document.getElementById("launch-schedule")?.scrollIntoView({
+            behavior: "smooth",
+          });
+        }}
+        className="flex items-center gap-1 text-xs text-zinc-400"
+      >
+        LAUNCH SCHEDULE <FiArrowRight />
+      </button>
+    </nav>
+  );
 };
 
 const SECTION_HEIGHT = 1500;
 
 const Hero = () => {
-    return (
-        <div
-            style={{ height: `calc(${SECTION_HEIGHT}px + 100vh)` }}
-            className="relative w-full"
-        >
-            <CenterImage />
+  return (
+    <div
+      style={{ height: `calc(${SECTION_HEIGHT}px + 100vh)` }}
+      className="relative w-full"
+    >
+      <CenterImage />
 
-            <ParallaxImages />
+      <ParallaxImages />
 
-            <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-zinc-950/0 to-zinc-950" />
-        </div>
-    );
+      <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-zinc-950/0 to-zinc-950" />
+    </div>
+  );
 };
 
 const CenterImage = () => {
-    const { scrollY } = useScroll();
+  const { scrollY } = useScroll();
 
-    const clip1 = useTransform(scrollY, [0, 1500], [25, 0]);
-    const clip2 = useTransform(scrollY, [0, 1500], [75, 100]);
+  const clip1 = useTransform(scrollY, [0, 1500], [25, 0]);
+  const clip2 = useTransform(scrollY, [0, 1500], [75, 100]);
 
-    const clipPath = useMotionTemplate`polygon(${clip1}% ${clip1}%, ${clip2}% ${clip1}%, ${clip2}% ${clip2}%, ${clip1}% ${clip2}%)`;
+  const clipPath = useMotionTemplate`polygon(${clip1}% ${clip1}%, ${clip2}% ${clip1}%, ${clip2}% ${clip2}%, ${clip1}% ${clip2}%)`;
 
-    const backgroundSize = useTransform(
-        scrollY,
-        [0, SECTION_HEIGHT + 500],
-        ["170%", "100%"]
-    );
-    const opacity = useTransform(
-        scrollY,
-        [SECTION_HEIGHT, SECTION_HEIGHT + 500],
-        [1, 0]
-    );
+  const backgroundSize = useTransform(
+    scrollY,
+    [0, SECTION_HEIGHT + 500],
+    ["170%", "100%"]
+  );
+  const opacity = useTransform(
+    scrollY,
+    [SECTION_HEIGHT, SECTION_HEIGHT + 500],
+    [1, 0]
+  );
 
-    return (
-        <motion.div
-            className="sticky top-0 h-screen w-full"
-            style={{
-                clipPath,
-                backgroundSize,
-                opacity,
-                backgroundImage:
-                    "url(https://images.unsplash.com/photo-1460186136353-977e9d6085a1?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-            }}
-        />
-    );
+  return (
+    <motion.div
+      className="sticky top-0 h-screen w-full"
+      style={{
+        clipPath,
+        backgroundSize,
+        opacity,
+        backgroundImage:
+          "url(https://images.unsplash.com/photo-1460186136353-977e9d6085a1?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    />
+  );
 };
 
 const ParallaxImages = () => {
-    return (
-        <div className="mx-auto max-w-5xl px-4 pt-[200px]">
-            <ParallaxImg
-                src="https://images.unsplash.com/photo-1484600899469-230e8d1d59c0?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="And example of a space launch"
-                start={-200}
-                end={200}
-                className="w-1/3"
-            />
-            <ParallaxImg
-                src="https://images.unsplash.com/photo-1446776709462-d6b525c57bd3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="An example of a space launch"
-                start={200}
-                end={-250}
-                className="mx-auto w-2/3"
-            />
-            <ParallaxImg
-                src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Orbiting satellite"
-                start={-200}
-                end={200}
-                className="ml-auto w-1/3"
-            />
-            <ParallaxImg
-                src="https://images.unsplash.com/photo-1494022299300-899b96e49893?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Orbiting satellite"
-                start={0}
-                end={-500}
-                className="ml-24 w-5/12"
-            />
-        </div>
-    );
+  return (
+    <div className="mx-auto max-w-5xl px-4 pt-[200px]">
+      <ParallaxImg
+        src="https://images.unsplash.com/photo-1484600899469-230e8d1d59c0?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="And example of a space launch"
+        start={-200}
+        end={200}
+        className="w-1/3"
+      />
+      <ParallaxImg
+        src="https://images.unsplash.com/photo-1446776709462-d6b525c57bd3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="An example of a space launch"
+        start={200}
+        end={-250}
+        className="mx-auto w-2/3"
+      />
+      <ParallaxImg
+        src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="Orbiting satellite"
+        start={-200}
+        end={200}
+        className="ml-auto w-1/3"
+      />
+      <ParallaxImg
+        src="https://images.unsplash.com/photo-1494022299300-899b96e49893?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="Orbiting satellite"
+        start={0}
+        end={-500}
+        className="ml-24 w-5/12"
+      />
+    </div>
+  );
 };
 
 const ParallaxImg = ({
-    className,
-    alt,
-    src,
-    start,
-    end,
+  className,
+  alt,
+  src,
+  start,
+  end,
 }: {
-    className?: string;
-    alt: string;
-    src: string;
-    start: number;
-    end: number;
+  className?: string;
+  alt: string;
+  src: string;
+  start: number;
+  end: number;
 }) => {
-    const ref = useRef(null);
+  const ref = useRef(null);
 
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        // @ts-ignore
-        offset: [`${start}px end`, `end ${end * -1}px`],
-    });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    // @ts-ignore
+    offset: [`${start}px end`, `end ${end * -1}px`],
+  });
 
-    const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0]);
-    const scale = useTransform(scrollYProgress, [0.75, 1], [1, 0.85]);
+  const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0.75, 1], [1, 0.85]);
 
-    const y = useTransform(scrollYProgress, [0, 1], [start, end]);
-    const transform = useMotionTemplate`translateY(${y}px) scale(${scale})`;
+  const y = useTransform(scrollYProgress, [0, 1], [start, end]);
+  const transform = useMotionTemplate`translateY(${y}px) scale(${scale})`;
 
-    return (
-        <motion.img
-            src={src}
-            alt={alt}
-            className={className}
-            ref={ref}
-            style={{ transform, opacity }}
-        />
-    );
+  return (
+    <motion.img
+      src={src}
+      alt={alt}
+      className={className}
+      ref={ref}
+      style={{ transform, opacity }}
+    />
+  );
 };
 
 const Schedule = () => {
-    return (
-        <section
-            id="launch-schedule"
-            className="mx-auto max-w-5xl px-4 py-8 text-white"
+  return (
+    <section
+      id="launch-schedule"
+      className="mx-auto max-w-5xl px-4 py-8 text-white"
+    >
+      <div className="relative w-fit mb-4">
+        <motion.h1
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}
+          className="text-lg md:text-4xl font-black uppercase text-zinc-50"
         >
-            <div className="relative w-fit mb-4">
-                <motion.h1
-                    initial={{ y: 48, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ ease: "easeInOut", duration: 0.75 }}
-                    className="text-lg md:text-4xl font-black uppercase text-zinc-50"
-                >
-                    Experience
-                </motion.h1>
-                <motion.div className="w-full h-1 bg-blue-600"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "100%" }}
-                    transition={{
-                        duration: 0.5,
-                        delay: 0.75,
-                        ease: "easeInOut",
-                    }} />
-            </div>
+          Experience
+        </motion.h1>
+        <motion.div
+          className="w-full h-1 bg-blue-600"
+          initial={{ width: 0 }}
+          whileInView={{ width: "100%" }}
+          transition={{
+            duration: 0.5,
+            delay: 0.75,
+            ease: "easeInOut",
+          }}
+        />
+      </div>
 
-
-            {
-                EXPERIENCES.map(exp => <ScheduleItem key={exp.id} {...exp} />)
-            }
-        </section>
-    );
+      {EXPERIENCES.map((exp) => (
+        <ScheduleItem key={exp.id} {...exp} />
+      ))}
+    </section>
+  );
 };
 
 const ScheduleItem = ({
-    company, position, responsibilities, timeline
-}: typeof EXPERIENCES[0]) => {
-    return (
-        <motion.div
-            initial={{ y: 48, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ ease: "easeInOut", duration: 0.75 }}
-            className="mb-9 flex items-center justify-between border-b border-zinc-800 px-3 pb-9"
-        >
-            <div className="pl-2">
-                <Text weight="bold" size="xl" color="orange">
-                    {company}
-                </Text>
-                <Text size="md" weight="semibold" className='!text-gray-300 !mt-1'>
-                    {position}
-                </Text>
-                <Text size="md" className="my-2 !text-gray-300 !mt-0.5">
-                    {timeline}
-                </Text>
-                <div className="mt-2">
-                    {responsibilities
-                        .split("-")
-                        .slice(1)
-                        .map((responsibility, idx) => (
-                            <Text size="lg" className="!leading-6 !text-gray-300" key={idx}>
-                                {" "}
-                                <span className="size-1.5 mr-2 rounded-full bg-gray-300 inline-block" />
-                                {responsibility}
-                            </Text>
-                        ))}
-                </div>
-            </div>
-
-        </motion.div>
-    );
+  company,
+  position,
+  responsibilities,
+  timeline,
+}: (typeof EXPERIENCES)[0]) => {
+  return (
+    <motion.div
+      initial={{ y: 48, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ ease: "easeInOut", duration: 0.75 }}
+      className="mb-9 flex items-center justify-between border-b border-zinc-800 px-3 pb-9"
+    >
+      <div className="pl-2">
+        <Text weight="bold" size="xl" color="orange">
+          {company}
+        </Text>
+        <Text size="md" weight="semibold" className="!text-gray-300 !mt-1">
+          {position}
+        </Text>
+        <Text size="md" className="my-2 !text-gray-300 !mt-0.5">
+          {timeline}
+        </Text>
+        <div className="mt-2">
+          {responsibilities
+            .split("-")
+            .slice(1)
+            .map((responsibility, idx) => (
+              <Text size="lg" className="!leading-6 !text-gray-300" key={idx}>
+                {" "}
+                <span className="size-1.5 mr-2 rounded-full bg-gray-300 inline-block" />
+                {responsibility}
+              </Text>
+            ))}
+        </div>
+      </div>
+    </motion.div>
+  );
 };
