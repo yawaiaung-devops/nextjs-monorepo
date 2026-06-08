@@ -9,7 +9,6 @@ import {
 import { SiSpacex } from "react-icons/si";
 import { FiArrowRight } from "react-icons/fi";
 import { useRef } from "react";
-import VerticalAccordion from "./verticalAccordian";
 import { EXPERIENCES } from "@/data/exp";
 import { Text } from "rsuite";
 import Home from "../pages/Home";
