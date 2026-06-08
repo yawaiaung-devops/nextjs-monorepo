@@ -1,13 +1,19 @@
 import { MdOutlineSportsSoccer } from "react-icons/md";
 import { FaBuilding, FaPalette, FaNewspaper } from "react-icons/fa";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { IconType } from "react-icons";
+import Image from "next/image";
+import { useScroll, useTransform } from "framer-motion";
 
 const VerticalAccordion = () => {
   const [open, setOpen] = useState(items[0].id);
-
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["end start", "end end"],
+  });
   return (
     <section className="max-w-5xl mx-auto pb-6">
       <div className="relative w-fit mb-4">
@@ -30,20 +36,50 @@ const VerticalAccordion = () => {
           }}
         />
       </div>
-      <div className="flex flex-col lg:flex-row h-fit lg:h-[450px] w-full max-w-6xl mx-auto shadow overflow-hidden">
-        {items.map((item) => {
+      {/* <div className="flex flex-col lg:flex-row h-fit lg:h-[450px] w-full max-w-6xl mx-auto shadow overflow-hidden"> */}
+      <div
+        ref={containerRef}
+        style={{
+          height: `${items.length * 90}vh`,
+        }}
+        className="relative mx-auto"
+      >
+        {items.map((item, index) => {
+          const start = index / items.length;
+          const end = (index + 1) / items.length;
+
+          const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
+          const y = useTransform(scrollYProgress, [start, end], [50, 0]);
+
           return (
-            <Panel
+            <motion.div
               key={item.id}
-              open={open}
-              setOpen={setOpen}
-              id={item.id}
-              Icon={item.Icon}
-              title={item.title}
-              imgSrc={item.imgSrc}
-              description={item.description}
-              size={item.size}
-            />
+              style={{ opacity, y }}
+              className="sticky top-24 mx-auto flex flex-col lg:flex-row gap-2 h-[90vh] lg:h-auto pb-4 bg-zinc-800"
+            >
+              <Image
+                src={item.imgSrc}
+                alt="project_img"
+                width={360}
+                height={280}
+                className="rounded-xl w-[90%] lg:w-[320px] h-[280px] shadow-xl object-cover"
+              />
+
+              <div>
+                <h6 className="text-white text-xl font-semibold mb-3">
+                  {item.title}
+                </h6>
+                <div>
+                  {item.features.map((feature) => (
+                    <div className="text-gray-200 mb-1">
+                      {" "}
+                      <span className="inline-block size-2 mr-2 rounded-full bg-gray-200" />
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           );
         })}
       </div>
@@ -166,16 +202,22 @@ const descriptionVariants = {
   closed: { opacity: 0, y: "100%" },
 };
 
-export const items = [
+const items = [
   {
     id: 9,
-    title: "One Site Menu",
+    title: "Alpha E-commerce",
     Icon: FaBuilding,
-    imgSrc: "/menu.png",
+    imgSrc: "/alpha.png",
     description:
-      "Developed a restaurant e-commerce platform with customizable storefronts, PWA support, online ordering, payment integrations, and a comprehensive merchant management dashboard.",
-    size: "cover",
-    href: "https://www.onesitemenu.com"
+      "Alpha E-commerce is a website that provides e-commerce services to clients. We offer a wide range of services including product catalog, payment processing, and etc.",
+    features: [
+      "Developed and managed an Admin Panel for an e-commerce platform, enabling seamless control over product listings, promotions, and marketing content.",
+      "Product Management: Added, edited, and organized product catalogs, including creating bundled product packages with customizable details (price, stock, images).",
+      "Implemented and optimized various promotion types, including flash sales, Buy X Get X offers, and discount campaigns with flexible rules (e.g., minimum/maximum purchase limits).",
+      "Managed dynamic homepage sliders for the user app, adjusting display content, timing, and promotional banners to enhance user engagement.",
+      "Created and enforced inventory and purchase rules, tracking stock levels and ensuring accurate purchase quantity limits for customers.",
+      "Integrated an intuitive interface for efficient promotion scheduling, visibility management, and promotional content updates.",
+    ],
   },
   {
     id: 8,
@@ -183,18 +225,66 @@ export const items = [
     Icon: FaBuilding,
     imgSrc: "/onesite.png",
     description:
-      "Developed a graphic design service platform providing branding, logo design, and creative solutions for businesses and individuals.",
-    size: "contain",
-    href: "https://onesitedesign.org"
+      "One Site Graphic Design is a website that provides graphic design services to clients. We offer a wide range of services including logo design, branding, and etc.",
+    features: [
+      "Pre-designed Templates: A library of customizable templates for various projects such as social media posts, presentations, posters, and business cards.",
+      "Text and Font Options: Access to a variety of fonts, text styling tools, and alignment options to create polished designs.",
+      "Image and Graphics Library: A collection of high-quality stock photos, illustrations, icons, and other design elements to enhance creativity.",
+      "Customization Tools: Color palettes, resizing options, and photo filters to tailor designs according to the user’s needs.",
+      "Collaboration Features: Multi-user access and real-time collaboration on design projects, making it ideal for teams or businesses.",
+      "Export & Sharing Options: Easy export to various formats (PNG, JPEG, PDF, SVG) and direct sharing on social media or through links.",
+      "Cloud-Based: Users can save their work to the cloud and access designs from anywhere, on any device.",
+      "Dynamic localization for whole app",
+    ],
   },
   {
-    id: 7,
-    title: "Alpha E-commerce",
-    Icon: FaNewspaper,
-    imgSrc: "/alpha.png",
+    id: 5,
+    title: "Kalasa Art Gallery",
+    Icon: FaPalette,
+    imgSrc: "/kalasa.png",
+    size: "cover",
     description:
-      "Developed a comprehensive e-commerce administration platform for managing products, inventory, promotions, and marketing operations through a centralized dashboard.",
+      "Kalasa Art Gallery is a website that provides art gallery services to clients. We offer a wide range of services including art exhibitions, art sales, and etc.",
+    features: [
+      "Online Gallery: High-resolution images of artworks with descriptions, artist bios, and pricing (if applicable).",
+      "Exhibitions & Events: Information on current, upcoming, and past exhibitions, with RSVP and ticketing options.",
+      "Virtual Tours: Interactive, 360-degree walkthroughs of the gallery space for remote visitors.",
+      "Artist Profiles: Dedicated pages highlighting each artist's portfolio, biography, and statements.",
+      "E-Commerce Integration: Ability to purchase or inquire about artworks online (for commercial galleries).",
+      "News & Blog: Updates on art world trends, featured artists, and educational content.",
+    ],
+  },
+  {
+    id: 4,
+    title: "World2MM",
+    Icon: FaNewspaper,
+    imgSrc: "/world2.png",
+    description: "Talking to the world from Myanmar",
     size: "contain",
-    href: "#"
+    features: [
+      "Real-Time News Aggregation: Collects and curates news from diverse sources worldwide, ensuring timely and comprehensive coverage of global events.",
+      "Multilingual Translations: Utilizes advanced translation technologies to provide news in multiple languages, making global news accessible to a wider audience.",
+      "User-Centric Interface: Designed for easy navigation, allowing users to explore news by country, region, or topic of interest.",
+      "Cross-Cultural Insights: Offers perspectives from various cultures and regions, fostering a deeper understanding of global issues.",
+    ],
+  },
+  {
+    id: 6,
+    title: "Mex HR",
+    Icon: FaBuilding,
+    imgSrc: "/mex.webp",
+    description:
+      "Mex HR is a website that provides HR services to clients. We offers the payroll calculation, employee management, and etc.",
+    size: "cover",
+    features: [
+      "Employee Management: Centralized database for employee records, onboarding, and role tracking.",
+      "Payroll & Benefits: Automated payroll processing, tax calculations, and benefit administration.",
+      "Time & Attendance: Tools for tracking employee hours, leave management, and scheduling.",
+      "Recruitment Module: Applicant tracking system (ATS), resume parsing, and interview scheduling.",
+      "Performance Management: Goal setting, feedback, performance reviews, and appraisal cycles.",
+      "Self-Service Portal: Employees can update profiles, submit leave requests, and access documents.",
+      "Analytics & Reporting: Real-time dashboards and customizable reports for data-driven decisions.",
+      "Compliance & Security: Ensures adherence to labor laws and secures sensitive HR data.",
+    ],
   },
 ];
