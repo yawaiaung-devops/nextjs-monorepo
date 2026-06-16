@@ -6,15 +6,13 @@ export const EXPERIENCES = [
     timeline: "Nov 2023 - Present",
     position: "FrontEnd Developer",
     responsibilities: `- Crafted responsive web designs that boosted user engagement.
-Built a multi-template content management system using Next.js in a mono-repo setup (Turborepo or
+Built a multi template content management system using Next.js in a monorepo setup (Turborepo or
 Nx), leveraging shared UI components, API utilities, and centralized configuration to improve
 scalability and maintainability.
 - Implemented a dynamic localization system used across web and mobile applications, allowing
-administrators to add new languages without code changes..
-Integrated payment in various web application like e-commerce, designing with KBZ Pay, AYA Pay,
+administrators to add new languages without code changes.
+Integrated payment in various web application like ecommerce, designing with KBZ Pay, AYA Pay,
 Wave Pay.
-- Improved page load performance by 40% through code splitting, lazy loading, and asset
-optimization.
 - Collaborated with UX/UI teams to elevate design quality and consistency.
 - Integrated APIs seamlessly, enriching user experience with dynamic content.
 - improving onboarding efficiency and code quality.
@@ -50,12 +48,12 @@ development and framework utilization.
 - Ensured data privacy and compliance with HR policies and standards
 `,
   },
-  {
-    id: 4,
-    company: "Htet Mann Linn Co.Ltd",
-    logo: "",
-    timeline: "2019 - 2021",
-    position: "Electrical Engineer Developer",
-    responsibilities: `- Develop, troubleshoot, and maintaining in heavy engineering system at port both mechanical and electrical. - Installed Night Vision camera in various vessel. - Testing, and re-mounting back the generator, chiller, rectifier and other heavy engineering parts.`,
-  },
+  // {
+  //   id: 4,
+  //   company: "Htet Mann Linn Co.Ltd",
+  //   logo: "",
+  //   timeline: "2019 - 2021",
+  //   position: "Electrical Engineer Developer",
+  //   responsibilities: `- Develop, troubleshoot, and maintaining in heavy engineering system at port both mechanical and electrical. - Installed Night Vision camera in various vessel. - Testing, and re-mounting back the generator, chiller, rectifier and other heavy engineering parts.`,
+  // },
 ];

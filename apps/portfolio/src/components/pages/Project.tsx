@@ -49,21 +49,12 @@ const Project = () => {
         <motion.h1
           initial={{ y: 48, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ ease: "easeInOut", duration: 0.75 }}
+          // transition={{ ease: "easeInOut", duration: 0.75 }}
           className="text-lg md:text-4xl font-black uppercase text-zinc-50"
         >
           Recent Projects
         </motion.h1>
-        <motion.div
-          className="w-full h-1 bg-blue-600"
-          initial={{ width: 0 }}
-          whileInView={{ width: "100%" }}
-          transition={{
-            duration: 1.2,
-            delay: 1,
-            ease: "easeInOut",
-          }}
-        />
+
       </div>
 
       <motion.div

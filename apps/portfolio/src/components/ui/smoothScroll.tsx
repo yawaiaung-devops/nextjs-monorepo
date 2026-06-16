@@ -18,7 +18,7 @@ import Project from "../pages/Project";
 
 export const SmoothScrollHero = () => {
   return (
-    <div className="w-full px-2 md:px-0 bg-zinc-800">
+    <div className="w-full px-2 md:px-0">
       <ReactLenis
         root
         options={{
@@ -27,12 +27,9 @@ export const SmoothScrollHero = () => {
           //   syncTouch: true,
         }}
       >
-        {/* <Hero /> */}
-        {/* <Nav />
-        <Hero /> */}
         <Home />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-5xl mx-auto">
+        <div className="hidden md:grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-5xl mx-auto">
           <LogoOrigami logos={LOGOS} />
           <LogoOrigami logos={LOGOS} />
           <LogoOrigami logos={LOGOS} />
@@ -95,12 +92,12 @@ const CenterImage = () => {
   const backgroundSize = useTransform(
     scrollY,
     [0, SECTION_HEIGHT + 500],
-    ["170%", "100%"]
+    ["170%", "100%"],
   );
   const opacity = useTransform(
     scrollY,
     [SECTION_HEIGHT, SECTION_HEIGHT + 500],
-    [1, 0]
+    [1, 0],
   );
 
   return (
